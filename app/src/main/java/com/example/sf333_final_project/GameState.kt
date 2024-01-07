@@ -22,7 +22,7 @@ enum class Person {
     Player
 }
 
-data class Card(val suit: String, val value: String , val boolean: Boolean) {
+data class Card(val suit: String, val value: String, var boolean: Boolean) {
     override fun toString(): String {
         return "$value $suit $boolean"
     }

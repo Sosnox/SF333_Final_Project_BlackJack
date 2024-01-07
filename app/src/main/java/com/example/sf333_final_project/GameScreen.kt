@@ -78,7 +78,7 @@ fun GameScreen(
         LazyColumn(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(180.dp),
+                .height(200.dp),
             horizontalAlignment = Alignment.Start,
             verticalArrangement = Arrangement.Center,
             contentPadding = PaddingValues(start = 16.dp, top = 50.dp, end = 16.dp, bottom = 8.dp)
@@ -107,10 +107,42 @@ fun GameScreen(
                 }
             }
         }
+//        LazyRow(
+//            modifier = Modifier.fillMaxWidth(),
+//            horizontalArrangement = Arrangement.spacedBy(8.dp),
+//            verticalAlignment = Alignment.CenterVertically,
+//            contentPadding = PaddingValues(start = 8.dp, end = 8.dp)
+//        ) {
+//            items(dealerHand) { card ->
+//
+//                if (dealerHand.indexOf(card) == 1 && card.boolean == false) {
+//                    card.boolean = true
+//                    Box(
+//                        modifier = Modifier
+//                            .size(100.dp, 150.dp)
+//                            .background(Color.Gray, shape = RoundedCornerShape(8.dp))
+//                            .shadow(4.dp)
+//                    )
+//                } else {
+//                    Box(
+//                        modifier = Modifier
+//                            .size(100.dp, 150.dp)
+//                            .background(Color.White, shape = RoundedCornerShape(8.dp))
+//                            .shadow(4.dp)
+//                    ) {
+//                        Text(
+//                            text = "${card.value} ${card.suit}",
+//                            modifier = Modifier.align(Alignment.Center),
+//                            fontSize = 16.sp
+//                        )
+//                    }
+//                }
+//            }
+//        }
         Column (
             modifier = Modifier
                 .fillMaxWidth()
-                .height(5.dp)
+                .height(2.dp)
                 .background(color = Color.Black)
                 .padding(vertical = 50.dp)
         ){
