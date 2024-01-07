@@ -3,6 +3,7 @@ package com.example.tictactoe
 import Card
 import GameState
 import Person
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -57,16 +58,24 @@ class GameViewModel : ViewModel() {
         Deck.cards.shuffle()
     }
 
-    fun handlePlayAgain(playerHand: MutableList<Card>, dealerHand: MutableList<Card>) {
+    fun handlePlayAgain(playerHand: MutableList<Card>, dealerHand: MutableList<Card> , cards: MutableList<Card>) {
         playerHand.clear()
         dealerHand.clear()
 
-        PointPlayer = 0
-        PointDealer = 0
-
+//        PointPlayer = 0
+//        PointDealer = 0
         hasWon = false
 
+        playerHand.add(cards[0])
+        dealerHand.add(cards[1])
+        playerHand.add(cards[2])
+        dealerHand.add(cards[3])
+
+        PointPlayer = calculateHandValue(playerHand)
+        PointDealer = calculateHandValue(dealerHand)
+
         Deck.cards.shuffle()
+
     }
 
     fun stand(playerHand : MutableList<Card> , dealerHand : MutableList<Card> , cards : MutableList<Card>){
