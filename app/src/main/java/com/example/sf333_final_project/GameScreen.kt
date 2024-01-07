@@ -155,7 +155,6 @@ fun GameScreen(
 
             }
         }
-
         // Row for Player's cards
         LazyColumn(
             modifier = Modifier
@@ -205,6 +204,16 @@ fun GameScreen(
                 color = Color.White,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
+            Row {
+                Text(
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontStyle = FontStyle.Italic,
+                    color = Color.White,
+                    modifier = Modifier.padding(bottom = 8.dp),
+                    text = " STATUS : ${viewModel.checkWin(playerHand, dealerHand, cards)}"
+                )
+            }
 
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -224,20 +233,11 @@ fun GameScreen(
                     Text(text = "STAND", fontSize = 16.sp)
                 }
             }
-            Text(
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                fontStyle = FontStyle.Italic,
-                modifier = Modifier.padding(bottom = 8.dp),
-                text = "${viewModel.checkWin(playerHand, dealerHand, cards)}"
-            )
 
             Row (
-
             ){
                 if (viewModel.hasWon) {
-                    Row(
-                    ) {
+                    Row() {
                     }
                     Button(
                         onClick = { viewModel.handlePlayAgain(playerHand,dealerHand , cards)}

@@ -21,22 +21,6 @@ class GameViewModel : ViewModel() {
         playerHand: MutableList<Card>,
         dealerHand: MutableList<Card>,
     ) {
-//        if (count <= 4) {
-//            if (turn == Person.Dealer) {
-//                dealerHand.add(cards[0])
-//                count += 1
-//                PointDealer = calculateHandValue(dealerHand)
-//                UpdatePoint(PointPlayer, PointDealer)
-//                state.toggleTurn()
-//            } else if (turn == Person.Player) {
-//                playerHand.add(cards[0])
-//                count += 1
-//                PointPlayer = calculateHandValue(playerHand)
-//                UpdatePoint(PointPlayer, PointDealer)
-//                state.toggleTurn()
-//            }
-//            Deck.cards.shuffle()
-//        }
 
         playerHand.add(cards[0])
         dealerHand.add(cards[1])
@@ -62,8 +46,6 @@ class GameViewModel : ViewModel() {
         playerHand.clear()
         dealerHand.clear()
 
-//        PointPlayer = 0
-//        PointDealer = 0
         hasWon = false
 
         playerHand.add(cards[0])
@@ -94,10 +76,7 @@ class GameViewModel : ViewModel() {
         var dealerScore = calculateHandValue(dealerHand)
         PointPlayer = playerScore
         PointDealer = dealerScore
-//        while (dealerScore < 17){
-//            dealerHand.add(cards[0])
-//            dealerScore = calculateHandValue(dealerHand)
-//        }
+
 
         when {
             playerScore == 21 && playerHand.size == 2 -> {
@@ -114,13 +93,8 @@ class GameViewModel : ViewModel() {
             }
             else -> "It's a draw!"
         }
-
-        // You can access hasWon outside of this function to check if someone has won
-        // e.g., if (hasWon) { /* do something */ }
         return "No winner yet"
     }
-
-
 
     fun calculateHandValue(hand: List<Card>): Int {
         var sum = 0
